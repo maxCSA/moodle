@@ -67,6 +67,9 @@ define('ENROL_EXT_REMOVED_SUSPEND', 2);
  * */
 define('ENROL_EXT_REMOVED_SUSPENDNOROLES', 3);
 
+define('ENROL_EXT_REMOVED_ALL', 0);
+define('ENROL_EXT_REMOVED_TABLE', 1);
+
 /**
  * Returns instances of enrol plugins
  * @param bool $enabled return enabled only

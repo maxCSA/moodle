@@ -327,6 +327,7 @@ class enrol_database_plugin extends enrol_plugin {
         $localcoursefield = $this->get_config('localcoursefield');
 
         $unenrolaction    = $this->get_config('unenrolaction');
+        $unenrolscope     = $this->get_config('unenrolscope');
         $defaultrole      = $this->get_config('defaultrole');
 
         // Create roles mapping.
@@ -397,6 +398,10 @@ class enrol_database_plugin extends enrol_plugin {
             $rs = $DB->get_recordset_sql($sql); // Watch out for idnumber duplicates.
             foreach ($rs as $course) {
                 if (empty($course->mapping)) {
+                    continue;
+                }
+                if ($unenrolscope == ENROL_EXT_REMOVED_TABLE and !isset($externalcourses[$course->mapping])) {
+                    // course not synced because not in external table
                     continue;
                 }
                 $existing[$course->mapping] = $course;

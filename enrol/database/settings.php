@@ -93,6 +93,9 @@ if ($ADMIN->fulltree) {
                      ENROL_EXT_REMOVED_SUSPENDNOROLES => get_string('extremovedsuspendnoroles', 'enrol'));
     $settings->add(new admin_setting_configselect('enrol_database/unenrolaction', get_string('extremovedaction', 'enrol'), get_string('extremovedaction_help', 'enrol'), ENROL_EXT_REMOVED_UNENROL, $options));
 
+    $options = array(ENROL_EXT_REMOVED_ALL            => get_string('extremovedall', 'enrol'),
+                     ENROL_EXT_REMOVED_TABLE          => get_string('extremovedtable', 'enrol'));
+    $settings->add(new admin_setting_configselect('enrol_database/unenrolscope', get_string('extremovedscope', 'enrol'), get_string('extremovedscope_help', 'enrol'), ENROL_EXT_REMOVED_ALL, $options));
 
 
     $settings->add(new admin_setting_heading('enrol_database_newcoursesheader', get_string('settingsheadernewcourses', 'enrol_database'), ''));
